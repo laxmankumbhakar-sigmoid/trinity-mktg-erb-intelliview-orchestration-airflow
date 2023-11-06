@@ -1,0 +1,65 @@
+
+
+Radon: Cyclomatic Complexity
+dags/care_amperity/care_amperity_extraction.py
+    M 22:4 Amperity.__init__ - A (4)
+    C 21:0 Amperity - A (3)
+    M 69:4 Amperity.export - A (3)
+    F 101:0 care_amperity_extraction - A (2)
+    C 11:0 Table - A (2)
+    M 12:4 Table.__init__ - A (1)
+    M 17:4 Table.lowercase_name - A (1)
+    M 45:4 Amperity.source_bucket - A (1)
+    M 49:4 Amperity.landing_bucket - A (1)
+    M 52:4 Amperity.source_path - A (1)
+    M 60:4 Amperity.landing_path - A (1)
+
+11 blocks (classes, functions, methods) analyzed.
+Average complexity: A (1.8181818181818181)
+
+
+Radon: Maintainability Index
+dags/care_amperity/care_amperity_extraction.py - A (64.08)
+
+
+Radon: Raw Metrics
+dags/care_amperity/care_amperity_extraction.py
+    LOC: 137
+    LLOC: 66
+    SLOC: 101
+    Comments: 1
+    Single comments: 0
+    Multi: 10
+    Blank: 26
+    - Comment Stats
+        (C % L): 1%
+        (C % S): 1%
+        (C + M % L): 8%
+** Total **
+    LOC: 137
+    LLOC: 66
+    SLOC: 101
+    Comments: 1
+    Single comments: 0
+    Multi: 10
+    Blank: 26
+    - Comment Stats
+        (C % L): 1%
+        (C % S): 1%
+        (C + M % L): 8%
+
+
+Radon: Halstead complexity metrics
+dags/care_amperity/care_amperity_extraction.py:
+    h1: 5
+    h2: 9
+    N1: 6
+    N2: 11
+    vocabulary: 14
+    length: 17
+    calculated_length: 40.13896548741762
+    volume: 64.72503367497926
+    difficulty: 3.0555555555555554
+    effort: 197.77093622910328
+    time: 10.987274234950183
+    bugs: 0.021575011224993085

@@ -1,0 +1,61 @@
+dags/care_snipp/care_snipp_extraction.py:18:89: E501 Line too long (134 > 88 characters)
+dags/care_snipp/care_snipp_extraction.py:26:89: E501 Line too long (111 > 88 characters)
+dags/care_snipp/care_snipp_extraction.py:32:89: E501 Line too long (121 > 88 characters)
+dags/care_snipp/care_snipp_extraction.py:61:9: E722 Do not use bare `except`
+dags/care_snipp/care_snipp_extraction.py:71:89: E501 Line too long (175 > 88 characters)
+Found 5 errors.
+
+
+Radon: Cyclomatic Complexity
+dags/care_snipp/care_snipp_extraction.py
+    F 16:0 care_snipp_extraction - A (4)
+
+1 blocks (classes, functions, methods) analyzed.
+Average complexity: A (4.0)
+
+
+Radon: Maintainability Index
+dags/care_snipp/care_snipp_extraction.py - A (74.39)
+
+
+Radon: Raw Metrics
+dags/care_snipp/care_snipp_extraction.py
+    LOC: 92
+    LLOC: 48
+    SLOC: 59
+    Comments: 2
+    Single comments: 2
+    Multi: 9
+    Blank: 22
+    - Comment Stats
+        (C % L): 2%
+        (C % S): 3%
+        (C + M % L): 12%
+** Total **
+    LOC: 92
+    LLOC: 48
+    SLOC: 59
+    Comments: 2
+    Single comments: 2
+    Multi: 9
+    Blank: 22
+    - Comment Stats
+        (C % L): 2%
+        (C % S): 3%
+        (C + M % L): 12%
+
+
+Radon: Halstead complexity metrics
+dags/care_snipp/care_snipp_extraction.py:
+    h1: 3
+    h2: 7
+    N1: 4
+    N2: 8
+    vocabulary: 10
+    length: 12
+    calculated_length: 24.406371956566698
+    volume: 39.863137138648355
+    difficulty: 1.7142857142857142
+    effort: 68.33680652339717
+    time: 3.796489251299843
+    bugs: 0.013287712379549451

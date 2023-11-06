@@ -1,0 +1,7 @@
+__pycache__/
+builds
+local_test
+.DS_Store
+.vscode/
+.scannerwork/
+logs

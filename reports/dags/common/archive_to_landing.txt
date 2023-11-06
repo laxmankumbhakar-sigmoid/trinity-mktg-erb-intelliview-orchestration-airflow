@@ -1,0 +1,68 @@
+dags/common/archive_to_landing.py:43:89: E501 Line too long (131 > 88 characters)
+dags/common/archive_to_landing.py:54:89: E501 Line too long (89 > 88 characters)
+dags/common/archive_to_landing.py:58:89: E501 Line too long (105 > 88 characters)
+dags/common/archive_to_landing.py:91:89: E501 Line too long (218 > 88 characters)
+dags/common/archive_to_landing.py:104:89: E501 Line too long (105 > 88 characters)
+dags/common/archive_to_landing.py:106:89: E501 Line too long (92 > 88 characters)
+dags/common/archive_to_landing.py:107:89: E501 Line too long (166 > 88 characters)
+Found 7 errors.
+
+
+Radon: Cyclomatic Complexity
+dags/common/archive_to_landing.py
+    C 9:0 Config - A (4)
+    M 10:4 Config.__init__ - A (4)
+    M 47:4 Config.validate_date_string - A (3)
+    M 61:4 Config.get_dates_between - A (3)
+    M 37:4 Config.source_objects - A (2)
+    F 89:0 archive_to_landing - A (1)
+
+6 blocks (classes, functions, methods) analyzed.
+Average complexity: A (2.8333333333333335)
+
+
+Radon: Maintainability Index
+dags/common/archive_to_landing.py - A (68.12)
+
+
+Radon: Raw Metrics
+dags/common/archive_to_landing.py
+    LOC: 136
+    LLOC: 71
+    SLOC: 91
+    Comments: 2
+    Single comments: 2
+    Multi: 17
+    Blank: 26
+    - Comment Stats
+        (C % L): 1%
+        (C % S): 2%
+        (C + M % L): 14%
+** Total **
+    LOC: 136
+    LLOC: 71
+    SLOC: 91
+    Comments: 2
+    Single comments: 2
+    Multi: 17
+    Blank: 26
+    - Comment Stats
+        (C % L): 1%
+        (C % S): 2%
+        (C + M % L): 14%
+
+
+Radon: Halstead complexity metrics
+dags/common/archive_to_landing.py:
+    h1: 5
+    h2: 11
+    N1: 7
+    N2: 14
+    vocabulary: 16
+    length: 21
+    calculated_length: 49.663388279447084
+    volume: 84.0
+    difficulty: 3.1818181818181817
+    effort: 267.27272727272725
+    time: 14.848484848484848
+    bugs: 0.028

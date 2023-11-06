@@ -1,0 +1,70 @@
+dags/care_ga/care_ga_extraction.py:59:89: E501 Line too long (168 > 88 characters)
+dags/care_ga/care_ga_extraction.py:92:89: E501 Line too long (134 > 88 characters)
+dags/care_ga/care_ga_extraction.py:99:89: E501 Line too long (111 > 88 characters)
+dags/care_ga/care_ga_extraction.py:100:89: E501 Line too long (96 > 88 characters)
+dags/care_ga/care_ga_extraction.py:304:89: E501 Line too long (106 > 88 characters)
+Found 5 errors.
+
+
+Radon: Cyclomatic Complexity
+dags/care_ga/care_ga_extraction.py
+    C 16:0 DAGHelper - A (3)
+    M 17:4 DAGHelper.__init__ - A (3)
+    M 55:4 DAGHelper.get_dataset_query - A (3)
+    M 62:4 DAGHelper.get_metadata - A (3)
+    M 49:4 DAGHelper.create_batch - A (2)
+    C 79:0 Batch - A (2)
+    F 90:0 care_ga_extraction - A (1)
+    M 39:4 DAGHelper.prefix_path - A (1)
+    M 44:4 DAGHelper.operational_file_path - A (1)
+    M 80:4 Batch.__init__ - A (1)
+
+10 blocks (classes, functions, methods) analyzed.
+Average complexity: A (2.0)
+
+
+Radon: Maintainability Index
+dags/care_ga/care_ga_extraction.py - A (47.55)
+
+
+Radon: Raw Metrics
+dags/care_ga/care_ga_extraction.py
+    LOC: 308
+    LLOC: 137
+    SLOC: 255
+    Comments: 3
+    Single comments: 1
+    Multi: 9
+    Blank: 43
+    - Comment Stats
+        (C % L): 1%
+        (C % S): 1%
+        (C + M % L): 4%
+** Total **
+    LOC: 308
+    LLOC: 137
+    SLOC: 255
+    Comments: 3
+    Single comments: 1
+    Multi: 9
+    Blank: 43
+    - Comment Stats
+        (C % L): 1%
+        (C % S): 1%
+        (C + M % L): 4%
+
+
+Radon: Halstead complexity metrics
+dags/care_ga/care_ga_extraction.py:
+    h1: 9
+    h2: 28
+    N1: 15
+    N2: 29
+    vocabulary: 37
+    length: 44
+    calculated_length: 163.13526283059372
+    volume: 229.2159480876738
+    difficulty: 4.660714285714286
+    effort: 1068.3100437657654
+    time: 59.35055798698696
+    bugs: 0.07640531602922461

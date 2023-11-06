@@ -1,0 +1,57 @@
+dags/care_sfmc/care_sfmc_extraction.py:39:89: E501 Line too long (119 > 88 characters)
+Found 1 error.
+
+
+Radon: Cyclomatic Complexity
+dags/care_sfmc/care_sfmc_extraction.py
+    F 34:0 care_sfmc_extraction - A (1)
+
+1 blocks (classes, functions, methods) analyzed.
+Average complexity: A (1.0)
+
+
+Radon: Maintainability Index
+dags/care_sfmc/care_sfmc_extraction.py - A (44.55)
+
+
+Radon: Raw Metrics
+dags/care_sfmc/care_sfmc_extraction.py
+    LOC: 159
+    LLOC: 90
+    SLOC: 131
+    Comments: 0
+    Single comments: 0
+    Multi: 0
+    Blank: 28
+    - Comment Stats
+        (C % L): 0%
+        (C % S): 0%
+        (C + M % L): 0%
+** Total **
+    LOC: 159
+    LLOC: 90
+    SLOC: 131
+    Comments: 0
+    Single comments: 0
+    Multi: 0
+    Blank: 28
+    - Comment Stats
+        (C % L): 0%
+        (C % S): 0%
+        (C + M % L): 0%
+
+
+Radon: Halstead complexity metrics
+dags/care_sfmc/care_sfmc_extraction.py:
+    h1: 5
+    h2: 9
+    N1: 6
+    N2: 11
+    vocabulary: 14
+    length: 17
+    calculated_length: 40.13896548741762
+    volume: 64.72503367497926
+    difficulty: 3.0555555555555554
+    effort: 197.77093622910328
+    time: 10.987274234950183
+    bugs: 0.021575011224993085

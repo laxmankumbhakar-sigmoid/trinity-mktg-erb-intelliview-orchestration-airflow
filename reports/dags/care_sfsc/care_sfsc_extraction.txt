@@ -1,0 +1,63 @@
+dags/care_sfsc/care_sfsc_extraction.py:26:89: E501 Line too long (98 > 88 characters)
+dags/care_sfsc/care_sfsc_extraction.py:36:89: E501 Line too long (123 > 88 characters)
+dags/care_sfsc/care_sfsc_extraction.py:37:89: E501 Line too long (131 > 88 characters)
+dags/care_sfsc/care_sfsc_extraction.py:57:9: E722 Do not use bare `except`
+dags/care_sfsc/care_sfsc_extraction.py:103:89: E501 Line too long (105 > 88 characters)
+dags/care_sfsc/care_sfsc_extraction.py:104:89: E501 Line too long (90 > 88 characters)
+dags/care_sfsc/care_sfsc_extraction.py:147:89: E501 Line too long (93 > 88 characters)
+Found 7 errors.
+
+
+Radon: Cyclomatic Complexity
+dags/care_sfsc/care_sfsc_extraction.py
+    F 24:0 care_sfsc_extraction - A (1)
+
+1 blocks (classes, functions, methods) analyzed.
+Average complexity: A (1.0)
+
+
+Radon: Maintainability Index
+dags/care_sfsc/care_sfsc_extraction.py - A (58.58)
+
+
+Radon: Raw Metrics
+dags/care_sfsc/care_sfsc_extraction.py
+    LOC: 200
+    LLOC: 103
+    SLOC: 145
+    Comments: 2
+    Single comments: 2
+    Multi: 12
+    Blank: 41
+    - Comment Stats
+        (C % L): 1%
+        (C % S): 1%
+        (C + M % L): 7%
+** Total **
+    LOC: 200
+    LLOC: 103
+    SLOC: 145
+    Comments: 2
+    Single comments: 2
+    Multi: 12
+    Blank: 41
+    - Comment Stats
+        (C % L): 1%
+        (C % S): 1%
+        (C + M % L): 7%
+
+
+Radon: Halstead complexity metrics
+dags/care_sfsc/care_sfsc_extraction.py:
+    h1: 5
+    h2: 18
+    N1: 10
+    N2: 20
+    vocabulary: 23
+    length: 30
+    calculated_length: 86.66829050039843
+    volume: 135.7068586817104
+    difficulty: 2.7777777777777777
+    effort: 376.96349633808444
+    time: 20.942416463226913
+    bugs: 0.04523561956057014

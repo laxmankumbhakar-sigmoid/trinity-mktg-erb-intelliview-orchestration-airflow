@@ -1,0 +1,67 @@
+builder.py:8:21: F401 [*] `zipfile.ZipFile` imported but unused
+builder.py:159:13: F541 [*] f-string without any placeholders
+Found 2 errors.
+[*] 2 potentially fixable with the --fix option.
+
+
+Radon: Cyclomatic Complexity
+builder.py
+    F 53:0 generate_dags_deploy_command - A (5)
+    F 83:0 generate_master_deploy_command - A (4)
+    C 17:0 EnumAction - A (4)
+    M 22:4 EnumAction.__init__ - A (4)
+    F 142:4 ignore_files_and_dirs - A (3)
+    F 145:4 ignore_files_and_dirs_with_trinity - A (3)
+    F 97:0 get_inputs - A (1)
+    M 39:4 EnumAction.__call__ - A (1)
+    C 45:0 Environment - A (1)
+
+9 blocks (classes, functions, methods) analyzed.
+Average complexity: A (2.888888888888889)
+
+
+Radon: Maintainability Index
+builder.py - A (52.65)
+
+
+Radon: Raw Metrics
+builder.py
+    LOC: 177
+    LLOC: 93
+    SLOC: 132
+    Comments: 5
+    Single comments: 5
+    Multi: 3
+    Blank: 37
+    - Comment Stats
+        (C % L): 3%
+        (C % S): 4%
+        (C + M % L): 5%
+** Total **
+    LOC: 177
+    LLOC: 93
+    SLOC: 132
+    Comments: 5
+    Single comments: 5
+    Multi: 3
+    Blank: 37
+    - Comment Stats
+        (C % L): 3%
+        (C % S): 4%
+        (C + M % L): 5%
+
+
+Radon: Halstead complexity metrics
+builder.py:
+    h1: 6
+    h2: 19
+    N1: 13
+    N2: 25
+    vocabulary: 25
+    length: 38
+    calculated_length: 96.22039775975506
+    volume: 176.46653521143952
+    difficulty: 3.9473684210526314
+    effort: 696.5784284662086
+    time: 38.69880158145603
+    bugs: 0.05882217840381317

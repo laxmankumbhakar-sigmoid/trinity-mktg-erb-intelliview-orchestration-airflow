@@ -1,0 +1,58 @@
+dags/trinity/config.py:3:18: F401 [*] `enum.Enum` imported but unused
+Found 1 error.
+[*] 1 potentially fixable with the --fix option.
+
+
+Radon: Cyclomatic Complexity
+dags/trinity/config.py
+    C 19:0 BlobStorage - A (2)
+
+1 blocks (classes, functions, methods) analyzed.
+Average complexity: A (2.0)
+
+
+Radon: Maintainability Index
+dags/trinity/config.py - A (55.48)
+
+
+Radon: Raw Metrics
+dags/trinity/config.py
+    LOC: 47
+    LLOC: 35
+    SLOC: 35
+    Comments: 0
+    Single comments: 0
+    Multi: 0
+    Blank: 12
+    - Comment Stats
+        (C % L): 0%
+        (C % S): 0%
+        (C + M % L): 0%
+** Total **
+    LOC: 47
+    LLOC: 35
+    SLOC: 35
+    Comments: 0
+    Single comments: 0
+    Multi: 0
+    Blank: 12
+    - Comment Stats
+        (C % L): 0%
+        (C % S): 0%
+        (C + M % L): 0%
+
+
+Radon: Halstead complexity metrics
+dags/trinity/config.py:
+    h1: 2
+    h2: 5
+    N1: 4
+    N2: 7
+    vocabulary: 7
+    length: 11
+    calculated_length: 13.60964047443681
+    volume: 30.880904142633646
+    difficulty: 1.4
+    effort: 43.2332657996871
+    time: 2.401848099982617
+    bugs: 0.010293634714211216

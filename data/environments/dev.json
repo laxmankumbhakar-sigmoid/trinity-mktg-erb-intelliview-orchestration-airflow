@@ -1,0 +1,43 @@
+{
+  "blob-storage": {
+    "trinity_config": {
+      "name": "",
+      "type": "gcs"
+    },
+    "trinity_landing": {
+      "name": "itlv-dev-gcs-euw2-advexp-test-01",
+      "type": "gcs"
+    },
+    "trinity_archive": {
+      "name": "",
+      "type": "gcs"
+    },
+    "trinity_bronze": {
+      "name": "",
+      "type": "gcs"
+    },
+    "trinity_silver": {
+      "name": "",
+      "type": "gcs"
+    },
+    "trinity_gold": {
+      "name": "",
+      "type": "gcs"
+    },
+    "trinity_acquisition_adverity": {
+      "name": "itlv-dev-gcs-euw2-advexp-test-01",
+      "type": "gcs"
+    }
+  },
+  "catalog": {
+    "mkterb_catalog": {
+      "name": "trinity_dev_domain_mkt_erb"
+    }
+  },
+  "secret-scopes": {
+    "trinity_intelliview_core": {
+      "name": "intelliview-scope",
+      "type": "databricks"
+    }
+  }
+}

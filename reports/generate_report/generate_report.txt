@@ -1,0 +1,57 @@
+generate_report.py:50:89: E501 Line too long (91 > 88 characters)
+Found 1 error.
+
+
+Radon: Cyclomatic Complexity
+generate_report.py
+    F 5:0 run_bash_command - A (3)
+
+1 blocks (classes, functions, methods) analyzed.
+Average complexity: A (3.0)
+
+
+Radon: Maintainability Index
+generate_report.py - A (74.87)
+
+
+Radon: Raw Metrics
+generate_report.py
+    LOC: 55
+    LLOC: 30
+    SLOC: 41
+    Comments: 4
+    Single comments: 4
+    Multi: 0
+    Blank: 10
+    - Comment Stats
+        (C % L): 7%
+        (C % S): 10%
+        (C + M % L): 7%
+** Total **
+    LOC: 55
+    LLOC: 30
+    SLOC: 41
+    Comments: 4
+    Single comments: 4
+    Multi: 0
+    Blank: 10
+    - Comment Stats
+        (C % L): 7%
+        (C % S): 10%
+        (C + M % L): 7%
+
+
+Radon: Halstead complexity metrics
+generate_report.py:
+    h1: 3
+    h2: 4
+    N1: 3
+    N2: 5
+    vocabulary: 7
+    length: 8
+    calculated_length: 12.75488750216347
+    volume: 22.458839376460833
+    difficulty: 1.875
+    effort: 42.11032383086406
+    time: 2.3394624350480036
+    bugs: 0.007486279792153611

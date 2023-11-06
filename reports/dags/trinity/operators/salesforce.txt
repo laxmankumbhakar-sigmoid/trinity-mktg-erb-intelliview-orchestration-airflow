@@ -1,0 +1,61 @@
+dags/trinity/operators/salesforce.py:20:89: E501 Line too long (100 > 88 characters)
+dags/trinity/operators/salesforce.py:85:89: E501 Line too long (120 > 88 characters)
+Found 2 errors.
+
+
+Radon: Cyclomatic Complexity
+dags/trinity/operators/salesforce.py
+    M 68:4 SalesforceBulkOperator.execute - B (7)
+    C 13:0 SalesforceBulkOperator - A (5)
+    M 58:4 SalesforceBulkOperator._validate_inputs - A (3)
+    M 27:4 SalesforceBulkOperator.__init__ - A (1)
+
+4 blocks (classes, functions, methods) analyzed.
+Average complexity: A (4.0)
+
+
+Radon: Maintainability Index
+dags/trinity/operators/salesforce.py - A (64.73)
+
+
+Radon: Raw Metrics
+dags/trinity/operators/salesforce.py
+    LOC: 132
+    LLOC: 62
+    SLOC: 98
+    Comments: 0
+    Single comments: 0
+    Multi: 14
+    Blank: 20
+    - Comment Stats
+        (C % L): 0%
+        (C % S): 0%
+        (C + M % L): 11%
+** Total **
+    LOC: 132
+    LLOC: 62
+    SLOC: 98
+    Comments: 0
+    Single comments: 0
+    Multi: 14
+    Blank: 20
+    - Comment Stats
+        (C % L): 0%
+        (C % S): 0%
+        (C + M % L): 11%
+
+
+Radon: Halstead complexity metrics
+dags/trinity/operators/salesforce.py:
+    h1: 8
+    h2: 19
+    N1: 11
+    N2: 20
+    vocabulary: 27
+    length: 31
+    calculated_length: 104.71062275542812
+    volume: 147.40151256706756
+    difficulty: 4.2105263157894735
+    effort: 620.6379476508107
+    time: 34.47988598060059
+    bugs: 0.04913383752235585

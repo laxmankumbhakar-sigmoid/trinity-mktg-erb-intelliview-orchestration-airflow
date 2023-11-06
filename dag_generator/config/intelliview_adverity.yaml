@@ -1,0 +1,3 @@
+datasource_id: adverity
+data_product: intelliview
+schedule: "@daily"
