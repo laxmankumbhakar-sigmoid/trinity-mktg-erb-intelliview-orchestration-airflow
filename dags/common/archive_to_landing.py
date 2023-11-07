@@ -9,9 +9,8 @@ from trinity.config import BlobStorage
 class Config:
     def __init__(self, context):
         keys = context["dag_run"].conf.keys()
-        self.datasource = context["dag_run"].conf["datasource"]
+        self.platform_id = context["dag_run"].conf["platform_id"]
         self.table_name = context["dag_run"].conf["table_name"]
-        self.acquisition_type = context["dag_run"].conf["acquisition_type"]
         self.acquisition_start_date = context["dag_run"].conf["acquisition_start_date"]
         self.reverse = "False"
 
@@ -40,7 +39,7 @@ class Config:
         )
         paths = []
         for date in dates:
-            path = f"{self.datasource}/{self.table_name}/acquisition_type={self.acquisition_type}/logical_acquisition_date={date}/"
+            path = f"{self.platform_id}/{self.table_name}/logical_acquisition_date={date}/"
             paths.append(path)
         return paths
 
@@ -92,17 +91,15 @@ def archive_to_landing():
 
     ```
      {
-         "datasource": "source",
+         "platform_id": "platform",
          "table_name": "table_name",
-         "acquisition_type": "incremental",
          "acquisition_start_date": "yyyy-mm-dd",
          "acquisition_end_date": "yyyy-mm-dd"
      }
      ```
 
-     `datasource`: options include 'care_ga', 'care_snipp', 'care_sfsc', and 'care_sfmc'
-     `table_name`: refers to the name of your file, e.g., 'member_info' belongs to the 'snipp' datasource
-     `acquisition_type`: represents the type of acquisition present in the source path
+     `platform_id`: options include 'care_ga', 'care_snipp', 'care_sfsc', and 'care_sfmc'
+     `table_name`: refers to the name of your file, e.g., 'member_info' belongs to the 'snipp' platform_id
      `acquisition_start_date`: indicates the start date from which you wish to transfer data
      `acquisition_end_date` (optional): if provided, indicates the end date until which you want to get data; defaults to the acquisition_start_date if not specified.
     """

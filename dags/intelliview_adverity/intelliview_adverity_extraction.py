@@ -21,14 +21,11 @@ def intelliview_adverity_extraction():
 
         acquisition_bucket = BlobStorage.trinity_acquisition_adverity.bucket
         landing_bucket = BlobStorage.trinity_landing.bucket
-        files = gcs_hook.list(
-            acquisition_bucket,
-            prefix="",
-        )
+        files = gcs_hook.list(acquisition_bucket)
         for file in files:
             if file.split('/')[0] != 'temp_landing_bucket': # TODO: Remove this after we get a landing bucket
                 logging.info(f"file: {file}")
-                source = file.split('-')[-4]
+                platform_id = file.split('-')[-4]
                 table = "_".join(file.split('-')[-3:-1])
                 date = file.split('-')[-1].split('.')[0]
                 filename = file.split('/')[-1]
@@ -36,7 +33,7 @@ def intelliview_adverity_extraction():
                     source_bucket=acquisition_bucket,
                     source_object=file,
                     destination_bucket=landing_bucket,
-                    destination_object=f"temp_landing_bucket/{source}/{table}/logical_acquisition_date={date}/{filename}",
+                    destination_object=f"temp_landing_bucket/{platform_id}/{table}/logical_acquisition_date={date}/{filename}",
                 )
                 # gcs_hook.delete(acquisition_bucket, file)
 

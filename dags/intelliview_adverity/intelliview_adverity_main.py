@@ -67,8 +67,6 @@ def template_dag():
 
         res = databricks_hook.get_run(job_run_id)
 
-        data_source = "adverity"
-        data_product = "intelliview"
         archive_bucket = BlobStorage.trinity_archive.bucket
         landing_bucket = BlobStorage.trinity_landing.bucket
 
@@ -76,14 +74,15 @@ def template_dag():
             if task["state"]["result_state"].lower() == "success":
                 files = gcs_hook.list(
                     landing_bucket,
-                    prefix=f"{data_product}_{data_source}/{task['task_key']}", # TODO:
+                    prefix=f"{task['task_key']}",
+
                 )
                 for file in files:
                     logging.info(f"file: {file}")
                     gcs_hook.copy(
                         source_bucket=landing_bucket,
                         source_object=file,
-                        destination_bucket=archive_bucket, # TODO:
+                        destination_bucket=archive_bucket,
                     )
                     gcs_hook.delete(landing_bucket, file)
 
