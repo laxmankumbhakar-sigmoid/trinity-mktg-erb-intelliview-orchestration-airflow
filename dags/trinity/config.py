@@ -1,6 +1,5 @@
 import json
 import os
-from enum import Enum
 
 from airflow.models import Variable
 
@@ -9,7 +8,7 @@ CONFIG_PATH = f"/home/airflow/gcs/data/environments/{ENVIRONMENT}.json"
 
 if not os.path.exists(CONFIG_PATH):
     parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-    CONFIG_PATH = os.path.join(parent_dir, "data", "environments", "dev.json")
+    CONFIG_PATH = os.path.join(parent_dir, "data", "environments", f"{ENVIRONMENT}.json")
 
 
 with open(CONFIG_PATH, "r") as config_file:
