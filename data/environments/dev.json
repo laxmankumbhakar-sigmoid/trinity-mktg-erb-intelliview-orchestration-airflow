@@ -5,7 +5,7 @@
       "type": "gcs"
     },
     "trinity_landing": {
-      "name": "itlv-dev-gcs-euw2-advexp-test-01",
+      "name": "itlv-dev-gcs-euw2-landing-test-01",
       "type": "gcs"
     },
     "trinity_archive": {

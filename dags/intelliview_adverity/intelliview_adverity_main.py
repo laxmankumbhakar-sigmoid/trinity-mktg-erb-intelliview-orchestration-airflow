@@ -16,7 +16,7 @@ from trinity.config import BlobStorage  # isort:skip
 @dag(
     dag_id="intelliview_adverity_main",
     start_date=datetime(2023, 3, 30),
-    schedule="@daily",
+    schedule="0 1,13 * * *",
     catchup=False,
     default_args={"retries": 0},
 )
@@ -72,11 +72,7 @@ def template_dag():
 
         for task in res["tasks"]:
             if task["state"]["result_state"].lower() == "success":
-                files = gcs_hook.list(
-                    landing_bucket,
-                    prefix=f"{task['task_key']}",
-
-                )
+                files = gcs_hook.list(landing_bucket, prefix=f"{task['task_key']}")
                 for file in files:
                     logging.info(f"file: {file}")
                     gcs_hook.copy(
