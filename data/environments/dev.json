@@ -1,7 +1,7 @@
 {
   "blob-storage": {
     "trinity_config": {
-      "name": "",
+      "name": "itlv-dev-gcs-euw2-config-test-01",
       "type": "gcs"
     },
     "trinity_landing": {
@@ -9,19 +9,19 @@
       "type": "gcs"
     },
     "trinity_archive": {
-      "name": "",
+      "name": "itlv-dev-gcs-euw2-archive-test-01",
       "type": "gcs"
     },
     "trinity_bronze": {
-      "name": "",
+      "name": "itlv-dev-gcs-euw2-bronze-test-01",
       "type": "gcs"
     },
     "trinity_silver": {
-      "name": "",
+      "name": "itlv-dev-gcs-euw2-silver-test-01",
       "type": "gcs"
     },
     "trinity_gold": {
-      "name": "",
+      "name": "itlv-dev-gcs-euw2-gold-test-01",
       "type": "gcs"
     },
     "trinity_acquisition_adverity": {
