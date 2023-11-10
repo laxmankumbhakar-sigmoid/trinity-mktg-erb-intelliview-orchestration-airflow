@@ -16,7 +16,7 @@ from trinity.config import BlobStorage
     default_args={"retries": 0},
 )
 def intelliview_adverity_extraction():
-    def acquisition_to_landing_logic(**kwargs):
+    def acquisition_to_landing_logic(ds):
         gcs_hook = GCSHook()
 
         acquisition_bucket = BlobStorage.trinity_acquisition_adverity.bucket
@@ -28,9 +28,8 @@ def intelliview_adverity_extraction():
                 report_id = file.split('-')[-3]
                 periodicity = file.split('-')[-2]
                 table_id = f"{report_id}_{periodicity}"
-                date = kwargs["logical_date"].strftime('%Y%m%d')
                 filename = file.split('/')[-1]
-                destination_object = f"{platform_id}/{table_id}/logical_acquisition_date={date}/{filename}"
+                destination_object = f"{platform_id}/{table_id}/logical_acquisition_date={ds}/{filename}"
                 logging.info(f"destination_object: {destination_object}")
                 gcs_hook.copy(
                     source_bucket=acquisition_bucket,
