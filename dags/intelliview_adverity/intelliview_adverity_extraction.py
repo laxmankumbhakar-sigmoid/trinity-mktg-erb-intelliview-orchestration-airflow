@@ -37,7 +37,7 @@ def intelliview_adverity_extraction():
                     destination_bucket=landing_bucket,
                     destination_object=destination_object,
                 )
-                # gcs_hook.delete(acquisition_bucket, file)
+                gcs_hook.delete(acquisition_bucket, file)
 
     acquisition_to_landing = PythonOperator(
         task_id="acquisition_to_landing",
