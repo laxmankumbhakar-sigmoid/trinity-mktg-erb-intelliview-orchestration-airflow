@@ -57,37 +57,24 @@ def generate_dags_deploy_command(env, write_path="builds/dags"):
     command_lines = ["# Local build paths"]
 
     if operating_system == "Windows":
-        command_lines.append("""$DAGS_BUILDS_PATH="$pwd" """)
+        command_lines.append("""$DAGS_BUILDS_PATH="$pwd"\builds\dags""")
     else:
-        command_lines.append("""DAGS_BUILDS_PATH=`pwd` """)
+        command_lines.append("""DAGS_BUILDS_PATH=`pwd`/builds/dags""")
     command_lines.append("# GCS build paths")
 
     if operating_system == "Windows":
         command_lines.append(
-            f"""$DAGS_CLOUD_BASE_PATH="gs://{DAG_BUCKETS[env]}/dags" """
+            f"""$DAGS_CLOUD_BASE_PATH="gs://{DAG_BUCKETS[env]}" """
         )
     else:
         command_lines.append(f"""DAGS_CLOUD_BASE_PATH=gs://{DAG_BUCKETS[env]}/dags""")
+
     command_lines.extend(
         [
-            "gsutil -m cp -r $DAGS_BUILDS_PATH/* $DAGS_CLOUD_BASE_PATH/",
-            "gsutil rm $DAGS_CLOUD_BASE_PATH/deploy.sh",
+            "gcloud storage cp -r $DAGS_BUILDS_PATH/** $DAGS_CLOUD_BASE_PATH",
+            "gcloud storage rm $DAGS_CLOUD_BASE_PATH/deploy.sh",
         ]
     )
-
-    with open(os.path.join(write_path, script_name), "w") as f:
-        f.writelines([line.strip() + "\n" for line in command_lines])
-
-
-def generate_master_deploy_command(env, write_path="builds"):
-    logging.info("Generating master deploy script")
-    operating_system = platform.system()
-    script_name = "deploy.ps1" if operating_system == "Windows" else "deploy.sh"
-    command_lines = ["# Run all individual builds"]
-    if operating_system == "Windows":
-        command_lines.extend(["cd dags", f"""& "./{script_name}" """, "cd .."])
-    else:
-        command_lines.extend(["cd dags", f"""sh "{script_name}" """, "cd .."])
 
     with open(os.path.join(write_path, script_name), "w") as f:
         f.writelines([line.strip() + "\n" for line in command_lines])
@@ -173,4 +160,3 @@ if __name__ == "__main__":
 
     logging.info("Generating deploy scripts")
     generate_dags_deploy_command(choice.name, f"{builds_path}/{dags_folder}")
-    generate_master_deploy_command(choice.name, builds_path)
