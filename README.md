@@ -348,7 +348,7 @@ To deploy the DAGs to GCP Composer, follow these steps:
       `python builder.py dev --source intelliview_adverity --include_trinity`
 
 2. Finally to deploy to the composer run:
-   `cd builds && sh deploy.sh && cd ..`
+   `sh ./builds/dags/deploy.sh`
 
 # Archive to Landing
 If you want to transfer data from the archive bucket to the landing bucket at your convenience, you may manually initiate the archive_to_landing pipeline. The configuration can be provided in the following format:
