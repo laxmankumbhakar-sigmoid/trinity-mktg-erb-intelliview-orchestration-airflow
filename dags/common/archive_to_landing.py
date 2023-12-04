@@ -2,7 +2,8 @@ import logging
 from datetime import datetime, timedelta
 
 from airflow.decorators import dag, task
-from airflow.providers.google.cloud.transfers.gcs_to_gcs import GCSToGCSOperator
+from airflow.providers.google.cloud.hooks.gcs import GCSHook
+
 from trinity.config import BlobStorage
 
 
@@ -10,7 +11,7 @@ class Config:
     def __init__(self, context):
         keys = context["dag_run"].conf.keys()
         self.platform_id = context["dag_run"].conf["platform_id"]
-        self.table_name = context["dag_run"].conf["table_name"]
+        self.table_id = context["dag_run"].conf["table_id"]
         self.acquisition_start_date = context["dag_run"].conf["acquisition_start_date"]
         self.reverse = "False"
 
@@ -39,7 +40,7 @@ class Config:
         )
         paths = []
         for date in dates:
-            path = f"{self.platform_id}/{self.table_name}/logical_acquisition_date={date}/"
+            path = f"{self.platform_id}/{self.table_id}/logical_acquisition_date={date}"
             paths.append(path)
         return paths
 
@@ -92,14 +93,14 @@ def archive_to_landing():
     ```
      {
          "platform_id": "platform",
-         "table_name": "table_name",
+         "table_id": "table_id",
          "acquisition_start_date": "yyyy-mm-dd",
          "acquisition_end_date": "yyyy-mm-dd"
      }
      ```
 
      `platform_id`: options include 'care_ga', 'care_snipp', 'care_sfsc', and 'care_sfmc'
-     `table_name`: refers to the name of your file, e.g., 'member_info' belongs to the 'snipp' platform_id
+     `table_id`: refers to the name of your file, e.g., 'member_info' belongs to the 'snipp' platform_id
      `acquisition_start_date`: indicates the start date from which you wish to transfer data
      `acquisition_end_date` (optional): if provided, indicates the end date until which you want to get data; defaults to the acquisition_start_date if not specified.
     """
@@ -120,14 +121,18 @@ def archive_to_landing():
 
     logging.info(config)
 
-    archive_to_landing = GCSToGCSOperator(
-        task_id="archive_to_landing",
-        source_bucket=config["source_bucket"],
-        source_objects=config["source_objects"],
-        destination_bucket=config["destination_bucket"],
-        move_object=False,
-    )
-    archive_to_landing
+    def archive_to_landing(source_bucket, prefix, destination_bucket):
+        gcs_hook = GCSHook()
+        files = gcs_hook.list(source_bucket, prefix=prefix)
+        for file in files:
+            logging.info(f"file: {file}")
+            gcs_hook.copy(
+                source_bucket=source_bucket,
+                source_object=file,
+                destination_bucket=destination_bucket
+            )
 
+    for prefix in config["source_objects"]:
+        archive_to_landing(config["source_bucket"], prefix, config["destination_bucket"])
 
 archive_to_landing()
