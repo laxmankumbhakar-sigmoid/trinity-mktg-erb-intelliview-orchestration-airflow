@@ -52,7 +52,7 @@ def template_dag():
 
     def landing_to_archive_logic(ti, **kwargs):
 
-        execution_date = kwargs['execution_date']
+        execution_date = kwargs['logical_date']
 
         upstream = kwargs['dag'].get_task("landing_to_bronze")
         tis = TaskInstance(upstream, execution_date)
