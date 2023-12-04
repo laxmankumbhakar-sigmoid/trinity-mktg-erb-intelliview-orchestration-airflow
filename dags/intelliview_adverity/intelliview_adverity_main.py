@@ -47,8 +47,16 @@ def template_dag():
         task_id="bronze_to_silver", json=json_silver, trigger_rule="all_success"
     )
 
+    json_cnc = {
+        "job_name": "intelliview_cnc_gold"
+    }
+
+    cnc_gold = DatabricksRunNowOperator(
+        task_id="cnc_gold", json=json_cnc, trigger_rule="all_done"
+    )
+
     def landing_to_archive_logic(ti, **kwargs):
-        execution_date = kwargs["execution_date"]
+        execution_date = kwargs["logical_date"]
 
         upstream = kwargs["dag"].get_task("landing_to_bronze")
         tis = TaskInstance(upstream, execution_date)
@@ -89,7 +97,7 @@ def template_dag():
         trigger_rule="all_done",
     )
 
-    source_to_landing >> landing_to_bronze >> [landing_to_archive, bronze_to_silver]
+    source_to_landing >> landing_to_bronze >> [landing_to_archive, bronze_to_silver] >> cnc_gold
 
 
 template_dag()
