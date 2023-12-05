@@ -99,14 +99,13 @@ def archive_to_landing():
      }
      ```
 
-     `platform_id`: options include 'care_ga', 'care_snipp', 'care_sfsc', and 'care_sfmc'
-     `table_id`: refers to the name of your file, e.g., 'member_info' belongs to the 'snipp' platform_id
+     `platform_id`: options include the id of the platforms e.g. 'amazon_dsp', 'cm360', 'dv360' etc.
+     `table_id`: e.g., 'ads_daily' belongs to the 'cm360' platform_id
      `acquisition_start_date`: indicates the start date from which you wish to transfer data
      `acquisition_end_date` (optional): if provided, indicates the end date until which you want to get data; defaults to the acquisition_start_date if not specified.
     """
 
-    @task
-    def get_config(**context):
+    def get_config(context):
         config = Config(context)
         logging.info(f"source_bucket: {config.source_bucket}")
         logging.info(f"source_objects: {config.source_objects}")
@@ -117,22 +116,21 @@ def archive_to_landing():
             "destination_bucket": config.destination_bucket,
         }
 
-    config = get_config()
+    @task
+    def archive_to_landing_task(**context):
+        config = get_config(context)
 
-    logging.info(config)
-
-    def archive_to_landing(source_bucket, prefix, destination_bucket):
         gcs_hook = GCSHook()
-        files = gcs_hook.list(source_bucket, prefix=prefix)
-        for file in files:
-            logging.info(f"file: {file}")
-            gcs_hook.copy(
-                source_bucket=source_bucket,
-                source_object=file,
-                destination_bucket=destination_bucket
-            )
+        for prefix in config["source_objects"]:
+            files = gcs_hook.list(config["source_bucket"], prefix=prefix)
+            for file in files:
+                logging.info(f"file: {file}")
+                gcs_hook.copy(
+                    source_bucket=config["source_bucket"],
+                    source_object=file,
+                    destination_bucket=config["destination_bucket"]
+                )
 
-    for prefix in config["source_objects"]:
-        archive_to_landing(config["source_bucket"], prefix, config["destination_bucket"])
+    archive_to_landing_task()
 
 archive_to_landing()
