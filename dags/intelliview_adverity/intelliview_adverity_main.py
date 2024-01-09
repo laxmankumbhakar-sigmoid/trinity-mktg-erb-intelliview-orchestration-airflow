@@ -44,7 +44,7 @@ def template_dag():
     }
 
     bronze_to_silver = DatabricksRunNowOperator(
-        task_id="bronze_to_silver", json=json_silver, trigger_rule="all_success"
+        task_id="bronze_to_silver", json=json_silver, trigger_rule="all_done"
     )
 
     json_cnc = {
@@ -53,6 +53,14 @@ def template_dag():
 
     cnc_gold = DatabricksRunNowOperator(
         task_id="cnc_gold", json=json_cnc, trigger_rule="all_done"
+    )
+
+    json_gold = {
+        "job_name": "intelliview_adverity_gold",
+    }
+
+    silver_to_gold = DatabricksRunNowOperator(
+        task_id="silver_to_gold", json=json_gold, trigger_rule="all_done"
     )
 
     def landing_to_archive_logic(ti, **kwargs):
@@ -97,7 +105,7 @@ def template_dag():
         trigger_rule="all_done",
     )
 
-    source_to_landing >> landing_to_bronze >> [landing_to_archive, bronze_to_silver] >> cnc_gold
-
+    source_to_landing >> landing_to_bronze >> [landing_to_archive, bronze_to_silver]
+    bronze_to_silver >> cnc_gold >> silver_to_gold
 
 template_dag()
