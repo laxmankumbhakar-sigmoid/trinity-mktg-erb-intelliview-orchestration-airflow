@@ -31,15 +31,17 @@ def update_lookup_table():
     """
 
     json = {
-        "job_name": "update_lookup_table",
+        "job_name": "intelliview_update_lookup_table",
     }
-    update_table = DatabricksRunNowOperator(
-        task_id="update_lookup_table",
-        json=json,
-        notebook_params={
+    notebook_params = {
             "target_schema": "{{ params.target_schema }}",
             "target_table": "{{ params.target_table }}"
         }
+    print(f"Received target_schema: {notebook_params['target_schema']}, target_table: {notebook_params['target_table']}")
+    update_table = DatabricksRunNowOperator(
+        task_id="update_lookup_table",
+        json=json,
+        notebook_params=notebook_params
     )
 
     update_table
