@@ -24,11 +24,11 @@ def intelliview_adverity_extraction():
         files = gcs_hook.list(acquisition_bucket)
         for file in files:
                 logging.info(f"file: {file}")
-                platform_id = file.split('-')[-4]
-                report_id = file.split('-')[-3]
-                periodicity = file.split('-')[-2]
-                table_id = f"{report_id}_{periodicity}"
                 filename = file.split('/')[-1]
+                platform_id = filename.split('-')[1]
+                report_id = filename.split('-')[2]
+                periodicity = filename.split('-')[3]
+                table_id = f"{report_id}_{periodicity}"
                 destination_object = f"{platform_id}/{table_id}/logical_acquisition_date={ds}/{filename}"
                 logging.info(f"destination_object: {destination_object}")
                 gcs_hook.copy(
