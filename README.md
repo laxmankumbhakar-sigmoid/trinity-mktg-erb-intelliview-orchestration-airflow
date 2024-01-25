@@ -62,11 +62,11 @@
 
 # Introduction
 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.
+This project is reponsible for orchestrating the databricks workflows for reckitt-intelliview project.
 
 ## Technologies and Tools Used
 
-**Workflow Orchestration:[TODO: Add logos]**
+**Workflow Orchestration:**
 
 [![Airflow][Airflow]][Airflow-url]
 
@@ -92,9 +92,7 @@ TODO: Give a short introduction of your project. Let this section explain the ob
 Before you begin, ensure that you have the following prerequisites installed:
 
 - [Airflow](https://airflow.apache.org/)[TODO]: Set up Airflow locally for faster development and troubleshooting if the DAG does not appear as expected in the UI.
-   - Dev Airflow[TODO] - [devrb-euw2-ccpser-trinity-mkterb-care](https://1310331ea9784a0a817e907a282865c9-dot-europe-west2.composer.googleusercontent.com/home)
-   - Dev Airflow intelliview sandbox - [intelliv2-sbx-composer-euw2-f880](https://console.cloud.google.com/composer/environments?authuser=0&project=group-intelliv2-dev-euw2)
-  <br></br>
+   - Dev Airflow intelliview sandbox - [intelliv2-sbx-composer-euw2-f880](https://console.cloud.google.com/composer/environments?authuser=0&project=group-intelliv2-dev-euw2)</br>
 
 - [Visual Studio Code](https://code.visualstudio.com/): IDE (Integrated Development Environment).
 
@@ -122,7 +120,7 @@ This guide helps developers use Ruff and SonarQube to improve code quality, foll
 
 ## Overview
 
-SonarQube analyze code, give feedback, and improve code quality. Integrate them to catch issues, enforce standards, and maintain high-quality code.
+SonarQube analyzes code, gives feedback, and improves code quality. Integrate it to catch issues, enforce standards, and maintain high-quality code.
 
 ## Installation and Setup
 
@@ -268,7 +266,7 @@ This guide provides step-by-step instructions on how to use the DAG generator an
 
 ## From Local to Cloud: Deploying Your DAG on Google Composer
 
-If not already installed, ensure that you install gsutil, which will be utilized to transfer your local file to the Google Cloud bucket.
+If not already installed, ensure that you install gcloud, which will be utilized to transfer your local file to the Google Cloud bucket.
 
 ### Creating an Extraction Pipeline
 
@@ -300,8 +298,8 @@ To create a main pipeline for a datasource, follow these steps:
    Example ga.yaml with config params
 
    ```yaml
-   datasource_id: ga
-   data_product: care
+   datasource_id: abcd
+   data_product: intelliview
    schedule: '@daily'
    extraction_acquisition_type: "incremental"
    extraction_var1: "value1"
@@ -327,7 +325,7 @@ To generate the main DAG for the datasource, run the following command:
 
 `python dag_generator/generator.py`
 
-Note: Upon completing this step, the <data_product>_<datasource>_main.py files ought to be generated within the dags/<data_product>_<datasource>/ directory.
+Note: Upon completing this step, the data_product_datasource_main.py files ought to be generated within the dags/data_product_datasource/ directory.
 
 ### Deploying the DAGs to GCP Composer
 
@@ -353,16 +351,16 @@ To deploy the DAGs to GCP Composer, follow these steps:
 # Archive to Landing
 If you want to transfer data from the archive bucket to the landing bucket at your convenience, you may manually initiate the archive_to_landing pipeline. The configuration can be provided in the following format:
 
-   ```json
-      {
-        "datasource": "source",
-        "table_name": "table_name",
-        "acquisition_start_date": "yyyy-mm-dd",
-        "acquisition_end_date": "yyyy-mm-dd"
-      }
-   ```
+```
+{
+    "platform_id": "platform",
+    "table_id": "table_id",
+    "acquisition_start_date": "yyyy-mm-dd",
+    "acquisition_end_date": "yyyy-mm-dd"
+}
+```
 
-- `datasource`: is your root folder name, like 'intelliview_adverity', 'care_snipp', 'care_sfsc', and 'care_sfmc'
-- `table_name`: refers to the name of your file, e.g., 'member_info' belongs to the 'snipp' datasource
-- `acquisition_start_date`: indicates the start date from which you wish to transfer data
-- `acquisition_end_date` (optional): if provided, indicates the end date until which you want to get data; defaults to the `acquisition_start_date` if not specified
+`platform_id`: options include the id of the platforms e.g. 'amazon_dsp', 'cm360', 'dv360' etc.
+`table_id`: e.g., 'ads_daily' belongs to the 'cm360' platform_id
+`acquisition_start_date`: indicates the start date from which you wish to transfer data
+`acquisition_end_date` (optional): if provided, indicates the end date until which you want to get data; defaults to the acquisition_start_date if not specified.
